@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { MaintenancePage, NotFoundPage, DemoPage } from './components/pages';
+import { MaintenancePage, NotFoundPage, DemoPage, IndividualBlogPage } from './components/pages';
 
-type PageType = 'maintenance' | 'notfound' | 'demo';
+type PageType = 'maintenance' | 'notfound' | 'demo' | 'individualblog';
 type DeviceType = 'desktop' | 'mobile';
 
 function App() {
   console.log('🚀 App component rendering');
-  const [currentPage, setCurrentPage] = useState<PageType>('maintenance');
+  const [currentPage, setCurrentPage] = useState<PageType>('individualblog');
   const [currentDevice, setCurrentDevice] = useState<DeviceType>('desktop');
   
   console.log('📱 Current state:', { currentPage, currentDevice });
@@ -21,6 +21,8 @@ function App() {
         return <NotFoundPage isMobile={isMobile} />;
       case 'demo':
         return <DemoPage isMobile={isMobile} />;
+      case 'individualblog':
+        return <IndividualBlogPage isMobile={isMobile} />;
       default:
         return <MaintenancePage isMobile={isMobile} />;
     }
@@ -55,6 +57,7 @@ function App() {
               onChange={(e) => setCurrentPage(e.target.value as PageType)}
               style={{ padding: '5px', border: '1px solid #ccc', borderRadius: '4px' }}
             >
+              <option value="individualblog">Individual Blog</option>
               <option value="maintenance">Maintenance</option>
               <option value="notfound">Not Found</option>
               <option value="demo">Layout Demo</option>
@@ -102,6 +105,7 @@ function App() {
               onChange={(e) => setCurrentPage(e.target.value as PageType)}
               className="border rounded px-2 py-1"
             >
+              <option value="individualblog">Individual Blog</option>
               <option value="maintenance">Maintenance</option>
               <option value="notfound">Not Found</option>
               <option value="demo">Layout Demo</option>
