@@ -1,0 +1,87 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Hiragino+Sans:wght@300;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Hiragino Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Font Weight Utilities */
+.font-hiragino-light {
+  font-family: 'Hiragino Sans', sans-serif;
+  font-weight: 300;
+}
+
+.font-hiragino-semibold {
+  font-family: 'Hiragino Sans', sans-serif;
+  font-weight: 600;
+}
+
+/* Custom utilities for exact pixel values from Figma */
+.text-figma-xs {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.text-figma-sm {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.text-figma-base {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.text-figma-lg {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.text-figma-xl {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.text-figma-2xl {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+/* Color utilities */
+.text-zinc-800-figma {
+  color: #27272A;
+}
+
+.text-zinc-400-figma {
+  color: #A1A1AA;
+}
+
+.bg-blue-500-figma {
+  background-color: #3B82F6;
+}
+
+.bg-blue-600-figma {
+  background-color: #2563EB;
+}
+
+.text-blue-600-figma {
+  color: #2563EB;
+}
+
+.bg-gray-50-figma {
+  background-color: #FAFAFA;
+}
