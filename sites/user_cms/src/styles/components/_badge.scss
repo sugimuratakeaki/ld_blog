@@ -1,0 +1,51 @@
+// ==========================================================================
+// Badge Component
+// ==========================================================================
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem $spacing-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-medium;
+  line-height: 1;
+  border-radius: $border-radius-sm;
+  white-space: nowrap;
+  
+  // Variants
+  &-primary {
+    background-color: $primary-blue-light;
+    color: $primary-blue;
+  }
+  
+  &-success {
+    background-color: $success-green-light;
+    color: $success-green;
+  }
+  
+  &-warning {
+    background-color: $warning-yellow-light;
+    color: $warning-yellow;
+  }
+  
+  &-danger {
+    background-color: $error-red-light;
+    color: $error-red;
+  }
+  
+  &-info {
+    background-color: $info-turquoise-light;
+    color: $info-turquoise;
+  }
+  
+  // Sizes
+  &-sm {
+    padding: 0.2rem 0.6rem;
+    font-size: 1rem;
+  }
+  
+  &-lg {
+    padding: 0.6rem $spacing-md;
+    font-size: $font-size-sm;
+  }
+}

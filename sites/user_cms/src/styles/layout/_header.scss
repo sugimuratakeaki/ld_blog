@@ -1,0 +1,289 @@
+// ==========================================================================
+// Header - Site Header Styles
+// ==========================================================================
+
+// Blog Header Section (Top Banner)
+.blog-header-section {
+  background-color: $primary-blue-light;
+  width: 100%;
+  padding: 12px 0;
+}
+
+.blog-header-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.blog-header-content {
+  background-color: $white;
+  border-radius: 16px;
+  padding: 24px 32px;
+  @include flex-between;
+  width: 100%;
+  
+  @include sp {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+}
+
+.blog-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  
+  @include sp {
+    width: 100%;
+  }
+}
+
+.blog-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.blog-details {
+  @include flex-column;
+  gap: 8px;
+}
+
+.blog-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.blog-title {
+  font-size: 20px;
+  font-weight: $font-semibold;
+  color: $text-primary;
+  margin: 0;
+}
+
+.blog-url {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+}
+
+.blog-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.blog-stat-item {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+}
+
+.blog-switch-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background-color: $white;
+  color: $primary-blue;
+  border: 2px solid $primary-blue;
+  border-radius: 30px;
+  font-size: $font-size-sm;
+  font-weight: $font-semibold;
+  cursor: pointer;
+  transition: $transition-all-base;
+  
+  &:hover {
+    background-color: $primary-blue;
+    color: $white;
+  }
+  
+  @include sp {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// Main Header
+.header {
+  position: sticky;
+  top: 0;
+  height: $header-height;
+  background-color: $primary-blue;
+  z-index: z('sticky');
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  
+  @include max-width($breakpoint-lg) {
+    padding: 12px 16px;
+  }
+}
+
+.header-content {
+  width: 100%;
+  @include flex-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: $font-size-xl;
+  font-weight: $font-bold;
+  color: $white;
+  text-decoration: none;
+  
+  img {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+  
+  @include sp {
+    font-size: $font-size-lg;
+    
+    span {
+      display: none;
+    }
+  }
+}
+
+// Mobile menu toggle
+.header-menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $white;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: transparent;
+  transition: $transition-all-fast;
+  cursor: pointer;
+  position: relative;
+  
+  @include max-width($breakpoint-lg) {
+    display: flex;
+  }
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .hamburger {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    @include flex-column;
+    justify-content: center;
+  }
+  
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $white;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:nth-child(1) {
+      top: 6px;
+    }
+    
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    &:nth-child(3) {
+      bottom: 6px;
+    }
+  }
+  
+  &.active {
+    .hamburger-line {
+      &:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      
+      &:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+// Header specific button styles
+.header {
+  .btn-primary {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: $white;
+    color: $white;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  .dropdown-toggle {
+    color: $white;
+  }
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  transition: background-color $transition-fast;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $light-gray-bg;
+  }
+  
+  @include sp {
+    .header-user-name {
+      display: none;
+    }
+  }
+}
+
+.header-user-avatar {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: $border-radius-full;
+  background-color: $primary-blue;
+  @include flex-center;
+  color: $white;
+  font-weight: $font-semibold;
+}
+
+.header-user-name {
+  font-size: $font-size-sm;
+  color: $white;
+}

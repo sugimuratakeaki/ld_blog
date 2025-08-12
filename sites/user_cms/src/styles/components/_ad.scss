@@ -1,0 +1,58 @@
+// ==========================================================================
+// Ad Component - Advertisement Display Areas
+// ==========================================================================
+
+.ad {
+  background-color: $light-gray-bg-2;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  &-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.2rem $spacing-sm;
+    background-color: rgba($dark-gray, 0.8);
+    color: $white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  &-content {
+    min-height: 100px;
+    @include flex-center;
+    color: $text-disabled;
+    font-size: $font-size-sm;
+  }
+  
+  // Size variants
+  &-banner {
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    margin: $spacing-lg auto;
+  }
+  
+  &-square {
+    width: 300px;
+    height: 250px;
+  }
+  
+  &-sidebar {
+    width: 100%;
+    max-width: 300px;
+    height: 600px;
+  }
+  
+  &-inline {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+    margin: $spacing-md 0;
+  }
+}

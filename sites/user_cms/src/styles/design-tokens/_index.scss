@@ -1,0 +1,40 @@
+// ==========================================================================
+// Design Tokens Index
+// すべてのデザイントークンを集約
+// ==========================================================================
+
+// トークンのインポート順序は依存関係に注意
+// 1. Colors (他のトークンから参照される)
+// 2. Typography 
+// 3. Spacing
+// 4. Effects (Colorsを参照)
+
+@import './colors';
+@import './typography';
+@import './spacing';
+@import './effects';
+
+// ==========================================================================
+// Token Validation
+// トークンが正しく読み込まれているか確認するためのデバッグ用クラス
+// ==========================================================================
+
+@if variable-exists(debug-tokens) and $debug-tokens == true {
+  .debug-tokens {
+    // Colors
+    --debug-primary: #{$color-brand-primary};
+    --debug-text: #{$color-text-primary};
+    
+    // Typography
+    --debug-font-base: #{$font-size-base};
+    --debug-font-family: #{$font-family-base};
+    
+    // Spacing
+    --debug-spacing-unit: #{$spacing-unit};
+    --debug-spacing-md: #{$spacing-md};
+    
+    // Effects
+    --debug-radius: #{$radius-base};
+    --debug-shadow: #{$shadow-base};
+  }
+}

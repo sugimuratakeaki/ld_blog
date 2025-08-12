@@ -1,0 +1,95 @@
+// ==========================================================================
+// Button Component
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-base;
+  font-weight: $font-medium;
+  line-height: $leading-normal;
+  border-radius: $border-radius-md;
+  transition: $transition-all-fast;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  min-height: 4rem;
+  
+  @include focus-ring;
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  // Variants
+  &-primary {
+    background-color: $primary-blue;
+    color: $white;
+    border-color: $primary-blue;
+    
+    &:hover:not(:disabled) {
+      background-color: $primary-blue-hover;
+      border-color: $primary-blue-hover;
+    }
+    
+    &:active:not(:disabled) {
+      background-color: $primary-blue-active;
+      border-color: $primary-blue-active;
+    }
+  }
+  
+  &-secondary {
+    background-color: $white;
+    color: $dark-gray;
+    border-color: $border-gray;
+    
+    &:hover:not(:disabled) {
+      background-color: $light-gray-bg;
+      border-color: $border-gray-light;
+    }
+  }
+  
+  &-danger {
+    background-color: $error-red;
+    color: $white;
+    border-color: $error-red;
+    
+    &:hover:not(:disabled) {
+      background-color: shade($error-red, 20%);
+      border-color: shade($error-red, 20%);
+    }
+  }
+  
+  &-outline {
+    background-color: transparent;
+    color: $primary-blue;
+    border-color: $primary-blue;
+    
+    &:hover:not(:disabled) {
+      background-color: $primary-blue-light;
+    }
+  }
+  
+  // Sizes
+  &-sm {
+    padding: 0.6rem $spacing-md;
+    font-size: $font-size-sm;
+    min-height: 3.2rem;
+  }
+  
+  &-lg {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-lg;
+    min-height: 4.8rem;
+  }
+}
+
+// Button group
+.btn-group {
+  display: inline-flex;
+  gap: $spacing-sm;
+}

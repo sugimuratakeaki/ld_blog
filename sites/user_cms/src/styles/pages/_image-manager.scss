@@ -1,0 +1,96 @@
+// ==========================================================================
+// Image Manager Page Styles
+// ==========================================================================
+
+.image-manager-header {
+  @include flex-between;
+  margin-bottom: $spacing-lg;
+}
+
+.image-upload-area {
+  background-color: $white;
+  border: 2px dashed $border-gray;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  text-align: center;
+  margin-bottom: $spacing-lg;
+  transition: $transition-all-fast;
+  cursor: pointer;
+  
+  &:hover,
+  &.dragging {
+    border-color: $primary-blue;
+    background-color: $primary-blue-light;
+  }
+  
+  .upload-icon {
+    font-size: $font-size-4xl;
+    color: $text-disabled;
+    margin-bottom: $spacing-md;
+  }
+  
+  .upload-text {
+    font-size: $font-size-base;
+    color: $dark-gray;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .upload-hint {
+    font-size: $font-size-sm;
+    color: $text-disabled;
+  }
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: $spacing-lg;
+  
+  @include sp {
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+}
+
+.image-card {
+  background-color: $white;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: $transition-all-fast;
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+  
+  &.selected {
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba($primary-blue, 0.1);
+  }
+}
+
+.image-preview {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  background-color: $light-gray-bg;
+}
+
+.image-info {
+  padding: $spacing-md;
+}
+
+.image-name {
+  font-size: $font-size-sm;
+  font-weight: $font-medium;
+  color: $dark-gray;
+  margin-bottom: 0.4rem;
+  @include truncate;
+}
+
+.image-meta {
+  @include flex-between;
+  font-size: $font-size-xs;
+  color: $text-disabled;
+}

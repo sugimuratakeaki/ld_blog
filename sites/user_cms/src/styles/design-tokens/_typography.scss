@@ -1,0 +1,204 @@
+// ==========================================================================
+// Design Tokens - Typography
+// タイポグラフィシステムの定義
+// ==========================================================================
+
+// ==========================================================================
+// 1. Font Families
+// ==========================================================================
+
+$font-family-sans: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-family-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Courier New', monospace;
+
+// Semantic Font Families
+$font-family-base: $font-family-sans;
+$font-family-heading: $font-family-sans;
+$font-family-code: $font-family-mono;
+
+// ==========================================================================
+// 2. Font Sizes (Type Scale)
+// Modular Scale: 1.25 (Major Third)
+// Base: 16px (1.6rem with 62.5% html font-size)
+// ==========================================================================
+
+// Size Scale
+$font-size-2xs: 1.0rem;   // 10px
+$font-size-xs: 1.2rem;    // 12px
+$font-size-sm: 1.4rem;    // 14px
+$font-size-base: 1.6rem;  // 16px - Base size
+$font-size-lg: 1.8rem;    // 18px
+$font-size-xl: 2.0rem;    // 20px
+$font-size-2xl: 2.4rem;   // 24px
+$font-size-3xl: 3.0rem;   // 30px
+$font-size-4xl: 3.6rem;   // 36px
+$font-size-5xl: 4.8rem;   // 48px
+
+// Semantic Font Sizes
+$font-size-body-sm: $font-size-sm;
+$font-size-body: $font-size-base;
+$font-size-body-lg: $font-size-lg;
+
+$font-size-heading-1: $font-size-4xl;
+$font-size-heading-2: $font-size-3xl;
+$font-size-heading-3: $font-size-2xl;
+$font-size-heading-4: $font-size-xl;
+$font-size-heading-5: $font-size-lg;
+$font-size-heading-6: $font-size-base;
+
+$font-size-caption: $font-size-xs;
+$font-size-overline: $font-size-2xs;
+
+// ==========================================================================
+// 3. Font Weights
+// ==========================================================================
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Semantic Font Weights
+$font-weight-base: $font-weight-regular;
+$font-weight-heading: $font-weight-semibold;
+$font-weight-emphasis: $font-weight-bold;
+
+// ==========================================================================
+// 4. Line Heights
+// ==========================================================================
+
+$line-height-none: 1;
+$line-height-tight: 1.25;
+$line-height-snug: 1.375;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+$line-height-loose: 1.75;
+$line-height-extra-loose: 2;
+
+// Semantic Line Heights
+$line-height-base: $line-height-normal;
+$line-height-heading: $line-height-tight;
+$line-height-paragraph: $line-height-relaxed;
+
+// ==========================================================================
+// 5. Letter Spacing
+// ==========================================================================
+
+$letter-spacing-tighter: -0.05em;
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+
+// ==========================================================================
+// 6. Text Styles (Compound Tokens)
+// 組み合わせスタイル定義
+// ==========================================================================
+
+@mixin text-style-heading-1 {
+  font-family: $font-family-heading;
+  font-size: $font-size-heading-1;
+  font-weight: $font-weight-heading;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-tight;
+}
+
+@mixin text-style-heading-2 {
+  font-family: $font-family-heading;
+  font-size: $font-size-heading-2;
+  font-weight: $font-weight-heading;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-tight;
+}
+
+@mixin text-style-heading-3 {
+  font-family: $font-family-heading;
+  font-size: $font-size-heading-3;
+  font-weight: $font-weight-heading;
+  line-height: $line-height-heading;
+}
+
+@mixin text-style-heading-4 {
+  font-family: $font-family-heading;
+  font-size: $font-size-heading-4;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-heading;
+}
+
+@mixin text-style-body {
+  font-family: $font-family-base;
+  font-size: $font-size-body;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+}
+
+@mixin text-style-body-sm {
+  font-family: $font-family-base;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+}
+
+@mixin text-style-caption {
+  font-family: $font-family-base;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+}
+
+@mixin text-style-overline {
+  font-family: $font-family-base;
+  font-size: $font-size-overline;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+  letter-spacing: $letter-spacing-wider;
+  text-transform: uppercase;
+}
+
+@mixin text-style-code {
+  font-family: $font-family-code;
+  font-size: 0.875em;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+}
+
+// ==========================================================================
+// 7. CSS Custom Properties Export
+// ==========================================================================
+
+:root {
+  // Font Families
+  --font-family-base: #{$font-family-base};
+  --font-family-heading: #{$font-family-heading};
+  --font-family-code: #{$font-family-code};
+  
+  // Font Sizes
+  --font-size-xs: #{$font-size-xs};
+  --font-size-sm: #{$font-size-sm};
+  --font-size-base: #{$font-size-base};
+  --font-size-lg: #{$font-size-lg};
+  --font-size-xl: #{$font-size-xl};
+  --font-size-2xl: #{$font-size-2xl};
+  --font-size-3xl: #{$font-size-3xl};
+  --font-size-4xl: #{$font-size-4xl};
+  
+  // Font Weights
+  --font-weight-regular: #{$font-weight-regular};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+  
+  // Legacy font weight variables
+  --font-medium: #{$font-weight-medium};
+  
+  // Line Heights
+  --line-height-tight: #{$line-height-tight};
+  --line-height-normal: #{$line-height-normal};
+  --line-height-relaxed: #{$line-height-relaxed};
+  
+  // Legacy font size variables
+  --text-sm: #{$font-size-sm};
+}

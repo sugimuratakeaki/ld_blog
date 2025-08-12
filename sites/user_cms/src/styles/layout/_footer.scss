@@ -1,0 +1,127 @@
+// ==========================================================================
+// Footer - Site Footer Styles
+// ==========================================================================
+
+.footer {
+  background-color: #FBFBFB;
+  border-top: 1px solid $border-gray;
+  padding: 24px 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.footer-links-container {
+  @include flex-between;
+  gap: 24px;
+  padding-bottom: 40px;
+  
+  @include sp {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.footer-section {
+  flex: 1;
+  
+  &-title {
+    font-size: $font-size-base;
+    font-weight: $font-semibold;
+    color: $primary-blue;
+    margin: 0 0 16px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid $primary-blue;
+  }
+  
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include flex-column;
+    gap: 8px;
+  }
+  
+  .footer-link {
+    color: $dark-navy;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: $primary-blue;
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer-bottom {
+  text-align: right;
+  
+  @include sp {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid $border-gray;
+  }
+}
+
+.footer-powered {
+  color: $primary-blue;
+  font-size: $font-size-sm;
+  font-weight: $font-semibold;
+}
+
+// Main content area
+.main-content {
+  flex: 1;
+  @include flex-column;
+  min-height: calc(100vh - #{$header-height});
+}
+
+.main-container {
+  flex: 1;
+  padding: $spacing-xl;
+  
+  @include sp {
+    padding: $spacing-md;
+  }
+}
+
+// Page header
+.page-header {
+  margin-bottom: $spacing-xl;
+}
+
+.page-title {
+  font-size: $font-size-3xl;
+  font-weight: $font-bold;
+  color: $dark-navy;
+  margin-bottom: $spacing-sm;
+  
+  @include sp {
+    font-size: $font-size-2xl;
+  }
+}
+
+.page-description {
+  font-size: $font-size-base;
+  color: $text-disabled;
+}
+
+.page-actions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+  
+  @include sp {
+    flex-direction: column;
+    width: 100%;
+    
+    .btn {
+      width: 100%;
+    }
+  }
+}

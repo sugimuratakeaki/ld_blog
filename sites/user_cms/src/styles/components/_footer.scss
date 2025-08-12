@@ -1,0 +1,108 @@
+// ==========================================================================
+// Footer - Main Site Footer
+// ==========================================================================
+
+.footer {
+  background-color: $white;
+  border-top: 1px solid $border-gray;
+  margin-top: auto;
+  padding: $spacing-2xl 0 $spacing-lg 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  
+  @include max-width($breakpoint-lg) {
+    padding: 0 $spacing-md;
+  }
+}
+
+.footer-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  
+  @include max-width($breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.footer-section {
+  // Individual section styles
+}
+
+.footer-section-title {
+  font-size: $font-size-lg;
+  font-weight: $font-semibold;
+  color: $dark-navy;
+  margin-bottom: $spacing-md;
+  line-height: $leading-tight;
+  
+  @include max-width($breakpoint-md) {
+    font-size: $font-size-base;
+  }
+}
+
+.footer-section-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link-item {
+  margin-bottom: $spacing-sm;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer-link {
+  color: $gray-600;
+  text-decoration: none;
+  font-size: $font-size-sm;
+  line-height: $leading-normal;
+  transition: color $transition-base;
+  display: block;
+  
+  &:hover {
+    color: $primary-blue;
+    text-decoration: underline;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary-blue;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+.footer-bottom {
+  padding-top: $spacing-lg;
+  border-top: 1px solid $border-light;
+  text-align: center;
+  
+  @include max-width($breakpoint-md) {
+    padding-top: $spacing-md;
+    text-align: left;
+  }
+}
+
+.footer-powered-by {
+  font-size: $font-size-sm;
+  color: $gray-500;
+  margin-bottom: $spacing-xs;
+  line-height: $leading-normal;
+}
+
+.footer-copyright {
+  font-size: $font-size-sm;
+  color: $gray-500;
+  margin: 0;
+  line-height: $leading-normal;
+}

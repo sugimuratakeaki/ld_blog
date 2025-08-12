@@ -1,0 +1,67 @@
+// ==========================================================================
+// Alert Component
+// ==========================================================================
+
+.alert {
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  border: 1px solid;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  
+  &-icon {
+    font-size: $font-size-xl;
+    flex-shrink: 0;
+  }
+  
+  &-content {
+    flex: 1;
+  }
+  
+  &-close {
+    @include button-reset;
+    width: 2.4rem;
+    height: 2.4rem;
+    @include flex-center;
+    border-radius: $border-radius-sm;
+    transition: background-color $transition-fast;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  // Variants
+  &-primary {
+    background-color: $primary-blue-light;
+    border-color: $primary-blue;
+    color: $primary-blue;
+  }
+  
+  &-success {
+    background-color: $success-green-light;
+    border-color: $success-green;
+    color: $success-green;
+  }
+  
+  &-warning {
+    background-color: $warning-yellow-light;
+    border-color: $warning-yellow;
+    color: $warning-yellow;
+  }
+  
+  &-danger,
+  &-error {
+    background-color: $error-red-light;
+    border-color: $error-red;
+    color: $error-red;
+  }
+  
+  &-info {
+    background-color: $info-turquoise-light;
+    border-color: $info-turquoise;
+    color: $info-turquoise;
+  }
+}

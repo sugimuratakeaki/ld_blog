@@ -1,0 +1,126 @@
+// ==========================================================================
+// Main Style Entry Point
+// スタイルシステムのエントリーポイント
+// ==========================================================================
+
+// ==========================================================================
+// 1. Configuration & Functions
+// 設定と関数（最初に読み込む必要がある）
+// ==========================================================================
+
+// HTML font-size を62.5%に設定（1rem = 10px）
+html {
+  font-size: 62.5%;
+}
+
+// ==========================================================================
+// 2. Design Tokens
+// デザイントークン（変数定義）
+// ==========================================================================
+
+@import './design-tokens/index';
+
+// ==========================================================================
+// 3. Foundation
+// 基盤スタイル（既存のfoundationを利用）
+// ==========================================================================
+
+@import './foundation/functions';
+@import './foundation/mixins';
+@import './foundation/reset';
+@import './foundation/base';
+
+// ==========================================================================
+// 4. Atomic Design Components
+// アトミックデザインコンポーネント
+// ==========================================================================
+
+@import './atomic/atoms';
+@import './atomic/molecules';
+
+// ==========================================================================
+// 5. Legacy Components
+// 既存のコンポーネント（段階的に移行）
+// ==========================================================================
+
+@import './components/button';
+@import './components/card';
+@import './components/form';
+@import './components/table';
+@import './components/modal';
+@import './components/alert';
+@import './components/pagination';
+@import './components/breadcrumb';
+@import './components/tag';
+@import './components/badge';
+@import './components/tooltip';
+@import './components/dropdown';
+@import './components/ad';
+
+// ==========================================================================
+// 6. Layout
+// レイアウト
+// ==========================================================================
+
+@import './layout/grid';
+@import './layout/container';
+@import './layout/header';
+@import './layout/footer';
+@import './layout/sidebar';
+@import './layout/drawer';
+
+// ==========================================================================
+// 7. Pages
+// ページ固有のスタイル
+// ==========================================================================
+
+@import './pages/dashboard';
+@import './pages/article-edit';
+@import './pages/article-list';
+@import './pages/image-manager';
+
+// ==========================================================================
+// 8. Utilities
+// ユーティリティクラス
+// ==========================================================================
+
+@import './utilities/spacing';
+@import './utilities/text';
+@import './utilities/color';
+@import './utilities/display';
+@import './utilities/flex';
+@import './utilities/responsive';
+
+// スペーシングユーティリティを生成
+@include spacing-utilities;
+
+// ==========================================================================
+// 9. Themes
+// テーマ（必要に応じて）
+// ==========================================================================
+
+@import './themes/default';
+
+// ==========================================================================
+// 10. Print Styles
+// 印刷用スタイル
+// ==========================================================================
+
+@media print {
+  // ナビゲーションを非表示
+  .header,
+  .sidebar,
+  .footer {
+    display: none !important;
+  }
+  
+  // リンクのURLを表示
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  // ページブレイクの制御
+  .page-break {
+    page-break-after: always;
+  }
+}

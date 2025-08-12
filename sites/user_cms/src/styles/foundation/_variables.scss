@@ -1,0 +1,189 @@
+// ==========================================================================
+// Variables - Design System Tokens
+// ==========================================================================
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+// Primary Colors
+$primary-blue: #0096EF;
+$primary-blue-light: #DFEEF7;
+$primary-blue-hover: #0077BF;
+$primary-blue-active: #005A8F;
+
+// Dark Colors
+$dark-navy: #1E3050;
+$dark-gray: #334155;
+
+// Status Colors
+$error-red: #DC3545;
+$error-red-light: rgba(208, 36, 36, 0.04);
+$warning-yellow: #F1AA00;
+$warning-yellow-light: rgba(241, 170, 0, 0.1);
+$success-green: #59BB0C;
+$success-green-light: rgba(89, 187, 12, 0.1);
+$info-turquoise: #4BCCBE;
+$info-turquoise-light: rgba(75, 204, 190, 0.1);
+
+// Neutral Colors
+$white: #FFFFFF;
+$gray-100: #F1F5F9;  // Add this for layout background
+$gray-500: #6B7280;  // Added for footer
+$gray-600: #4B5563;  // Added for footer links
+$light-gray-bg: #F1F5F9;
+$light-gray-bg-2: #F6F8FA;
+$border-gray: #E5E7EB;
+$border-gray-light: #D1D5DB;
+$border-light: #F1F5F9;  // Added for footer divider
+$text-disabled: #A0A0A0;
+$text-placeholder: #C0C0C0;
+$text-primary: $dark-gray;
+$text-secondary: #6B7280;
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+// Font Family
+$font-family-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-family-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+
+// Font Sizes (using rem, 1rem = 10px base)
+$font-size-xs: 1.2rem;    // 12px
+$font-size-sm: 1.4rem;    // 14px
+$font-size-base: 1.6rem;  // 16px
+$font-size-lg: 1.8rem;    // 18px
+$font-size-xl: 2.0rem;    // 20px
+$font-size-2xl: 2.4rem;   // 24px
+$font-size-3xl: 3.0rem;   // 30px
+$font-size-4xl: 3.6rem;   // 36px
+
+// Font Weights
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Line Heights
+$leading-tight: 1.25;
+$leading-normal: 1.5;
+$leading-relaxed: 1.75;
+$leading-loose: 2;
+
+// ==========================================================================
+// Spacing (8px base)
+// ==========================================================================
+$spacing-0: 0;
+$spacing-xs: 0.4rem;  // 4px
+$spacing-sm: 0.8rem;  // 8px
+$spacing-md: 1.6rem;  // 16px
+$spacing-lg: 2.4rem;  // 24px
+$spacing-xl: 3.2rem;  // 32px
+$spacing-2xl: 4.0rem; // 40px
+$spacing-3xl: 4.8rem; // 48px
+$spacing-4xl: 5.6rem; // 56px
+$spacing-5xl: 6.4rem; // 64px
+$spacing-6xl: 7.2rem; // 72px
+$spacing-7xl: 8.0rem; // 80px
+
+// Legacy spacing (for compatibility)
+$space-0: $spacing-0;
+$space-1: $spacing-sm;
+$space-2: $spacing-md;
+$space-3: $spacing-lg;
+$space-4: $spacing-xl;
+$space-5: $spacing-2xl;
+$space-6: $spacing-3xl;
+$space-7: $spacing-4xl;
+$space-8: $spacing-5xl;
+$space-9: $spacing-6xl;
+$space-10: $spacing-7xl;
+
+// ==========================================================================
+// Breakpoints
+// ==========================================================================
+$breakpoint-sp: 767px;
+$breakpoint-tablet: 768px;
+$breakpoint-pc: 1024px;
+$breakpoint-wide: 1280px;
+
+// Legacy breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// ==========================================================================
+// Container
+// ==========================================================================
+$container-max-width: 128rem; // 1280px
+$container-padding: $spacing-md;
+$container-padding-sp: $spacing-sm;
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+$sidebar-width: 280px; // Flask版と統一（rem値から変更）
+$sidebar-collapsed-width: 64px; // px値に統一
+$header-height: 6.4rem; // 64px
+$footer-height: 6rem; // 60px
+
+// ==========================================================================
+// Z-index
+// ==========================================================================
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+
+// Additional z-index values for layout
+$z-sidebar: 100;
+$z-sidebar-mobile: 1035;
+$z-overlay: 1034;
+
+// ==========================================================================
+// Border Radius
+// ==========================================================================
+$border-radius-none: 0;
+$border-radius-sm: 0.4rem;
+$border-radius-base: 0.6rem;
+$border-radius-md: 0.6rem;
+$border-radius-lg: 0.8rem;
+$border-radius-xl: 1.2rem;
+$border-radius-2xl: 1.6rem;
+$border-radius-full: 9999px;
+
+// Legacy radius
+$radius-none: $border-radius-none;
+$radius-sm: $border-radius-sm;
+$radius-md: $border-radius-md;
+$radius-lg: $border-radius-lg;
+$radius-xl: $border-radius-xl;
+$radius-2xl: $border-radius-2xl;
+$radius-full: $border-radius-full;
+
+// ==========================================================================
+// Shadows
+// ==========================================================================
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+// ==========================================================================
+// Transitions
+// ==========================================================================
+$transition-fast: 150ms ease-in-out;
+$transition-base: 250ms ease-in-out;
+$transition-slow: 350ms ease-in-out;
+
+// Full transition properties
+$transition-all-fast: all $transition-fast;
+$transition-all-base: all $transition-base;
+$transition-all-slow: all $transition-slow;

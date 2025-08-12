@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__check_onboarding_performed",
+      "mcp__serena__activate_project",
+      "mcp__figma__get_code",
+      "mcp__figma__get_image",
+      "WebFetch(domain:localhost)",
+      "mcp__serena__list_dir",
+      "mcp__serena__think_about_collected_information",
+      "mcp__figma__get_variable_defs",
+      "mcp__serena__onboarding",
+      "mcp__serena__write_memory",
+      "mcp__serena__get_symbols_overview",
+      "mcp__serena__insert_after_symbol",
+      "mcp__serena__replace_regex",
+      "mcp__serena__find_symbol"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpJsonServers": [
+    "figma"
+  ]
+}

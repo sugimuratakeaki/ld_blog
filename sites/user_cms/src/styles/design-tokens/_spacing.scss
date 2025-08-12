@@ -1,0 +1,240 @@
+// ==========================================================================
+// Design Tokens - Spacing
+// スペーシングシステムの定義
+// ==========================================================================
+
+// ==========================================================================
+// 1. Base Unit
+// 8px基準のスペーシングシステム
+// ==========================================================================
+
+$spacing-unit: 0.8rem; // 8px (with 62.5% html font-size)
+
+// ==========================================================================
+// 2. Spacing Scale
+// T-shirt sizing + numeric scale
+// ==========================================================================
+
+// Numeric Scale (0-20)
+$spacing-0: 0;                          // 0px
+$spacing-0-5: calc($spacing-unit * 0.5); // 4px
+$spacing-1: calc($spacing-unit * 1);    // 8px
+$spacing-1-5: calc($spacing-unit * 1.5); // 12px
+$spacing-2: calc($spacing-unit * 2);    // 16px
+$spacing-2-5: calc($spacing-unit * 2.5); // 20px
+$spacing-3: calc($spacing-unit * 3);    // 24px
+$spacing-4: calc($spacing-unit * 4);    // 32px
+$spacing-5: calc($spacing-unit * 5);    // 40px
+$spacing-6: calc($spacing-unit * 6);    // 48px
+$spacing-7: calc($spacing-unit * 7);    // 56px
+$spacing-8: calc($spacing-unit * 8);    // 64px
+$spacing-9: calc($spacing-unit * 9);    // 72px
+$spacing-10: calc($spacing-unit * 10);  // 80px
+$spacing-12: calc($spacing-unit * 12);  // 96px
+$spacing-14: calc($spacing-unit * 14);  // 112px
+$spacing-16: calc($spacing-unit * 16);  // 128px
+$spacing-20: calc($spacing-unit * 20);  // 160px
+
+// T-shirt Sizing
+$spacing-3xs: $spacing-0-5;  // 4px
+$spacing-2xs: $spacing-1;    // 8px
+$spacing-xs: $spacing-1-5;   // 12px
+$spacing-sm: $spacing-2;     // 16px
+$spacing-md: $spacing-3;     // 24px
+$spacing-lg: $spacing-4;     // 32px
+$spacing-xl: $spacing-5;     // 40px
+$spacing-2xl: $spacing-6;    // 48px
+$spacing-3xl: $spacing-8;    // 64px
+$spacing-4xl: $spacing-10;   // 80px
+$spacing-5xl: $spacing-12;   // 96px
+
+// ==========================================================================
+// 3. Component-Specific Spacing
+// コンポーネント固有のスペーシング
+// ==========================================================================
+
+// Padding
+$padding-button-x: $spacing-3;
+$padding-button-y: $spacing-1-5;
+$padding-button-sm-x: $spacing-2;
+$padding-button-sm-y: $spacing-1;
+$padding-button-lg-x: $spacing-4;
+$padding-button-lg-y: $spacing-2;
+
+$padding-input-x: $spacing-2;
+$padding-input-y: $spacing-1-5;
+
+$padding-card: $spacing-3;
+$padding-card-sm: $spacing-2;
+$padding-card-lg: $spacing-4;
+
+$padding-modal: $spacing-4;
+$padding-modal-header: $spacing-3;
+$padding-modal-body: $spacing-3;
+$padding-modal-footer: $spacing-3;
+
+// Margin
+$margin-stack-3xs: $spacing-0-5;
+$margin-stack-2xs: $spacing-1;
+$margin-stack-xs: $spacing-2;
+$margin-stack-sm: $spacing-3;
+$margin-stack-md: $spacing-4;
+$margin-stack-lg: $spacing-6;
+$margin-stack-xl: $spacing-8;
+$margin-stack-2xl: $spacing-10;
+
+$margin-inline-3xs: $spacing-0-5;
+$margin-inline-2xs: $spacing-1;
+$margin-inline-xs: $spacing-1-5;
+$margin-inline-sm: $spacing-2;
+$margin-inline-md: $spacing-3;
+$margin-inline-lg: $spacing-4;
+$margin-inline-xl: $spacing-6;
+
+// Gap (for flexbox/grid)
+$gap-3xs: $spacing-0-5;
+$gap-2xs: $spacing-1;
+$gap-xs: $spacing-1-5;
+$gap-sm: $spacing-2;
+$gap-md: $spacing-3;
+$gap-lg: $spacing-4;
+$gap-xl: $spacing-6;
+$gap-2xl: $spacing-8;
+
+// ==========================================================================
+// 4. Layout Spacing
+// レイアウト用のスペーシング
+// ==========================================================================
+
+// Container
+$container-padding-mobile: $spacing-2;
+$container-padding-tablet: $spacing-3;
+$container-padding-desktop: $spacing-4;
+
+// Section
+$section-spacing-mobile: $spacing-6;
+$section-spacing-tablet: $spacing-8;
+$section-spacing-desktop: $spacing-10;
+
+// Grid
+$grid-gap-mobile: $spacing-2;
+$grid-gap-tablet: $spacing-3;
+$grid-gap-desktop: $spacing-4;
+
+// ==========================================================================
+// 5. Spacing Utilities Mixin
+// ==========================================================================
+
+@mixin spacing-utilities {
+  // Margin utilities
+  @each $name, $value in (
+    '0': $spacing-0,
+    '0-5': $spacing-0-5,
+    '1': $spacing-1,
+    '1-5': $spacing-1-5,
+    '2': $spacing-2,
+    '3': $spacing-3,
+    '4': $spacing-4,
+    '5': $spacing-5,
+    '6': $spacing-6,
+    '8': $spacing-8,
+    '10': $spacing-10
+  ) {
+    .m-#{$name} { margin: $value !important; }
+    .mt-#{$name} { margin-top: $value !important; }
+    .mr-#{$name} { margin-right: $value !important; }
+    .mb-#{$name} { margin-bottom: $value !important; }
+    .ml-#{$name} { margin-left: $value !important; }
+    .mx-#{$name} { 
+      margin-left: $value !important;
+      margin-right: $value !important;
+    }
+    .my-#{$name} { 
+      margin-top: $value !important;
+      margin-bottom: $value !important;
+    }
+  }
+  
+  // Padding utilities
+  @each $name, $value in (
+    '0': $spacing-0,
+    '0-5': $spacing-0-5,
+    '1': $spacing-1,
+    '1-5': $spacing-1-5,
+    '2': $spacing-2,
+    '3': $spacing-3,
+    '4': $spacing-4,
+    '5': $spacing-5,
+    '6': $spacing-6,
+    '8': $spacing-8,
+    '10': $spacing-10
+  ) {
+    .p-#{$name} { padding: $value !important; }
+    .pt-#{$name} { padding-top: $value !important; }
+    .pr-#{$name} { padding-right: $value !important; }
+    .pb-#{$name} { padding-bottom: $value !important; }
+    .pl-#{$name} { padding-left: $value !important; }
+    .px-#{$name} { 
+      padding-left: $value !important;
+      padding-right: $value !important;
+    }
+    .py-#{$name} { 
+      padding-top: $value !important;
+      padding-bottom: $value !important;
+    }
+  }
+  
+  // Gap utilities
+  @each $name, $value in (
+    '0': $spacing-0,
+    '1': $spacing-1,
+    '2': $spacing-2,
+    '3': $spacing-3,
+    '4': $spacing-4,
+    '5': $spacing-5,
+    '6': $spacing-6,
+    '8': $spacing-8
+  ) {
+    .gap-#{$name} { gap: $value !important; }
+    .gap-x-#{$name} { column-gap: $value !important; }
+    .gap-y-#{$name} { row-gap: $value !important; }
+  }
+}
+
+// ==========================================================================
+// 6. CSS Custom Properties Export
+// ==========================================================================
+
+:root {
+  // Base spacing
+  --spacing-0: 0;
+  --spacing-1: #{$spacing-1};
+  --spacing-2: #{$spacing-2};
+  --spacing-3: #{$spacing-3};
+  --spacing-4: #{$spacing-4};
+  --spacing-5: #{$spacing-5};
+  --spacing-6: #{$spacing-6};
+  --spacing-8: #{$spacing-8};
+  --spacing-10: #{$spacing-10};
+  
+  // T-shirt sizes
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  
+  // Legacy space variables for compatibility
+  --space-0: 0;
+  --space-1: #{$spacing-1};
+  --space-2: #{$spacing-2};
+  --space-3: #{$spacing-3};
+  --space-4: #{$spacing-4};
+  --space-5: #{$spacing-5};
+  --space-6: #{$spacing-6};
+  --space-7: #{$spacing-7};
+  --space-8: #{$spacing-8};
+  --space-9: #{$spacing-9};
+  --space-10: #{$spacing-10};
+}

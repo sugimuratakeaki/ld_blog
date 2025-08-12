@@ -1,0 +1,118 @@
+// ==========================================================================
+// Card Component
+// ==========================================================================
+
+.card {
+  @include card;
+  
+  &-header {
+    padding: $spacing-md; // Flask版と同じ: 一貫性のあるpadding
+    border-bottom: 1px solid $border-gray;
+    background-color: $light-gray-bg-2;
+  }
+  
+  &-body {
+    padding: $spacing-md; // Flask版と同じ: 32px → 24px
+  }
+  
+  &-footer {
+    padding: $spacing-md; // Flask版と同じ: 一貫性のあるpadding
+    border-top: 1px solid $border-gray;
+    background-color: $light-gray-bg-2;
+  }
+}
+
+// Article card variant
+.article-card {
+  @include flex-column;
+  height: 100%;
+  transition: transform $transition-fast;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+  
+  &-image {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    background-color: $light-gray-bg;
+  }
+  
+  &-content {
+    flex: 1;
+    padding: $spacing-md;
+  }
+  
+  &-title {
+    font-size: $font-size-lg;
+    font-weight: $font-semibold;
+    color: $dark-gray;
+    margin-bottom: $spacing-sm;
+    @include line-clamp(2);
+  }
+  
+  &-meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    font-size: $font-size-sm;
+    color: $text-disabled;
+    margin-top: $spacing-sm;
+  }
+}
+
+// Stat card variant
+.stat-card {
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-md; // Flask版と同じ: 32px → 24px
+  border: 1px solid $border-gray;
+  display: flex;
+  align-items: center;
+  gap: $spacing-md; // Flask版と同じ: 32px → 24px
+}
+
+.stat-icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: $border-radius-lg;
+  @include flex-center;
+  font-size: $font-size-2xl;
+  
+  &.primary {
+    background-color: $primary-blue-light;
+    color: $primary-blue;
+  }
+  
+  &.success {
+    background-color: $success-green-light;
+    color: $success-green;
+  }
+  
+  &.warning {
+    background-color: $warning-yellow-light;
+    color: $warning-yellow;
+  }
+  
+  &.info {
+    background-color: $info-turquoise-light;
+    color: $info-turquoise;
+  }
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: $font-size-sm;
+  color: $text-disabled;
+  margin-bottom: 0.4rem;
+}
+
+.stat-value {
+  font-size: $font-size-2xl;
+  font-weight: $font-bold;
+  color: $dark-navy;
+}

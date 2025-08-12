@@ -1,0 +1,162 @@
+// ==========================================================================
+// Sidebar - Navigation Sidebar Styles
+// ==========================================================================
+
+.sidebar {
+  width: $sidebar-width;
+  background-color: $white;
+  color: $dark-navy;
+  @include flex-column;
+  position: sticky;
+  top: $header-height;
+  height: calc(100vh - #{$header-height});
+  border-right: 1px solid $border-gray;
+  transition: width $transition-base, transform $transition-base;
+  
+  @include max-width($breakpoint-lg) {
+    display: none;
+  }
+  
+  // Collapsed state
+  &.collapsed {
+    width: $sidebar-collapsed-width;
+    
+    .sidebar-section-title,
+    .sidebar-item-text,
+    .sidebar-footer {
+      display: none;
+    }
+    
+    .sidebar-item {
+      justify-content: center;
+      padding: $spacing-md;
+    }
+    
+    .sidebar-item-icon {
+      margin-right: 0;
+    }
+  }
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: $spacing-lg 0;
+  @include custom-scrollbar;
+}
+
+.sidebar-nav {
+  @include flex-column;
+}
+
+.sidebar-section {
+  margin-bottom: 0;
+  padding: 0 32px;
+}
+
+.sidebar-section-title {
+  display: none; // Hidden per Figma design
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 0 0 8px 0;
+  color: $dark-navy;
+  font-size: $font-size-base;
+  font-weight: 300;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  position: relative;
+  border-radius: 64px;
+  text-decoration: none;
+  background-color: transparent;
+  white-space: nowrap;
+  
+  > span {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  &:hover {
+    background-color: #F8F9FA;
+    color: $dark-navy;
+  }
+  
+  &.active {
+    background-color: $light-gray-bg;
+    color: $dark-navy;
+    font-weight: $font-semibold;
+    border: 1px solid $border-gray;
+    
+    &::before {
+      display: none; // Remove left indicator per Figma design
+    }
+  }
+  
+  &-indent {
+    padding-left: 56px;
+    font-size: $font-size-sm;
+    font-weight: 300;
+    margin: 0 0 8px 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+    .sidebar-item-text {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+.sidebar-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  @include flex-center;
+  font-size: $font-size-base;
+  flex-shrink: 0; // Prevent icon from shrinking
+}
+
+.sidebar-item-text {
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: inherit;
+  flex: 1;
+}
+
+.sidebar-expand-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.sidebar-badge {
+  margin-left: auto;
+  margin-right: 8px;
+  background-color: $error-red;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.sidebar-footer {
+  padding: 16px 32px;
+  border-top: 1px solid $border-gray;
+}
+
+// Sidebar collapse button
+.sidebar-collapse-btn {
+  background-color: $light-gray-bg;
+  color: $dark-navy;
+  border: 1px solid $border-gray;
+  
+  &:hover {
+    background-color: $border-gray;
+  }
+}

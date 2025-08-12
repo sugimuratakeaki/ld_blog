@@ -1,0 +1,281 @@
+// ==========================================================================
+// Design Tokens - Effects
+// ビジュアルエフェクトの定義
+// ==========================================================================
+
+// ==========================================================================
+// 1. Border Radius
+// ==========================================================================
+
+$radius-none: 0;
+$radius-sm: 0.2rem;    // 2px
+$radius-base: 0.4rem;  // 4px
+$radius-md: 0.6rem;    // 6px
+$radius-lg: 0.8rem;    // 8px
+$radius-xl: 1.2rem;    // 12px
+$radius-2xl: 1.6rem;   // 16px
+$radius-3xl: 2.4rem;   // 24px
+$radius-full: 9999px;  // Full rounded
+
+// Component specific
+$radius-button: $radius-base;
+$radius-input: $radius-base;
+$radius-card: $radius-lg;
+$radius-modal: $radius-lg;
+$radius-badge: $radius-full;
+$radius-tag: $radius-sm;
+
+// ==========================================================================
+// 2. Box Shadow
+// ==========================================================================
+
+// Shadow tokens
+$shadow-none: none;
+$shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-2xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+// Colored shadows
+$shadow-primary: 0 4px 14px 0 rgba(0, 150, 239, 0.2);
+$shadow-success: 0 4px 14px 0 rgba(89, 187, 12, 0.2);
+$shadow-warning: 0 4px 14px 0 rgba(241, 170, 0, 0.2);
+$shadow-error: 0 4px 14px 0 rgba(220, 53, 69, 0.2);
+
+// Component specific
+$shadow-button: $shadow-sm;
+$shadow-button-hover: $shadow-base;
+$shadow-card: $shadow-base;
+$shadow-card-hover: $shadow-md;
+$shadow-dropdown: $shadow-lg;
+$shadow-modal: $shadow-xl;
+$shadow-popover: $shadow-lg;
+
+// ==========================================================================
+// 3. Border
+// ==========================================================================
+
+// Border width
+$border-width-none: 0;
+$border-width-thin: 1px;
+$border-width-base: 1px;
+$border-width-thick: 2px;
+$border-width-bold: 3px;
+
+// Border style
+$border-style-solid: solid;
+$border-style-dashed: dashed;
+$border-style-dotted: dotted;
+
+// Default borders
+$border-default: $border-width-base $border-style-solid $color-border-default;
+$border-light: $border-width-base $border-style-solid $color-border-light;
+$border-focus: $border-width-thick $border-style-solid $color-border-focus;
+
+// ==========================================================================
+// 4. Transitions & Animations
+// ==========================================================================
+
+// Duration
+$duration-instant: 0ms;
+$duration-fast: 150ms;
+$duration-base: 250ms;
+$duration-slow: 350ms;
+$duration-slower: 500ms;
+$duration-slowest: 1000ms;
+
+// Easing
+$ease-linear: linear;
+$ease-in: cubic-bezier(0.4, 0, 1, 1);
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+// Transition presets
+$transition-none: none;
+$transition-all: all $duration-base $ease-in-out;
+$transition-colors: background-color $duration-base $ease-in-out,
+                   border-color $duration-base $ease-in-out,
+                   color $duration-base $ease-in-out,
+                   fill $duration-base $ease-in-out,
+                   stroke $duration-base $ease-in-out;
+$transition-opacity: opacity $duration-base $ease-in-out;
+$transition-shadow: box-shadow $duration-base $ease-in-out;
+$transition-transform: transform $duration-base $ease-in-out;
+
+// Animation keyframes
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+// ==========================================================================
+// 5. Opacity
+// ==========================================================================
+
+$opacity-0: 0;
+$opacity-5: 0.05;
+$opacity-10: 0.1;
+$opacity-20: 0.2;
+$opacity-25: 0.25;
+$opacity-30: 0.3;
+$opacity-40: 0.4;
+$opacity-50: 0.5;
+$opacity-60: 0.6;
+$opacity-70: 0.7;
+$opacity-75: 0.75;
+$opacity-80: 0.8;
+$opacity-90: 0.9;
+$opacity-95: 0.95;
+$opacity-100: 1;
+
+// Component specific
+$opacity-disabled: $opacity-50;
+$opacity-overlay: $opacity-50;
+$opacity-hover: $opacity-80;
+
+// ==========================================================================
+// 6. Z-index
+// ==========================================================================
+
+$z-index-negative: -1;
+$z-index-0: 0;
+$z-index-10: 10;
+$z-index-20: 20;
+$z-index-30: 30;
+$z-index-40: 40;
+$z-index-50: 50;
+$z-index-auto: auto;
+
+// Component layers
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
+$z-index-toast: 1080;
+
+// ==========================================================================
+// 7. Mixins for Effects
+// ==========================================================================
+
+@mixin focus-ring {
+  outline: 2px solid $color-brand-primary;
+  outline-offset: 2px;
+}
+
+@mixin focus-ring-inset {
+  outline: 2px solid $color-brand-primary;
+  outline-offset: -2px;
+}
+
+@mixin hover-lift {
+  transition: $transition-transform, $transition-shadow;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+@mixin active-press {
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@mixin skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    $color-neutral-100 25%,
+    $color-neutral-200 50%,
+    $color-neutral-100 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// ==========================================================================
+// 8. CSS Custom Properties Export
+// ==========================================================================
+
+:root {
+  // Border radius
+  --radius-sm: #{$radius-sm};
+  --radius-base: #{$radius-base};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-full: #{$radius-full};
+  
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-base: #{$shadow-base};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  
+  // Transitions
+  --duration-fast: #{$duration-fast};
+  --duration-base: #{$duration-base};
+  --duration-slow: #{$duration-slow};
+  --ease-in-out: #{$ease-in-out};
+}

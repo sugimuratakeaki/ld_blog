@@ -1,0 +1,155 @@
+// ==========================================================================
+// Design Tokens - Colors
+// カラーシステムの定義
+// ==========================================================================
+
+// ==========================================================================
+// 1. Primitive Colors (原色)
+// 基本となる色の定義
+// ==========================================================================
+
+// Brand Colors
+$color-brand-primary: #0096EF;
+$color-brand-primary-dark: #0077BF;
+$color-brand-primary-darker: #005A8F;
+$color-brand-primary-light: #DFEEF7;
+$color-brand-primary-lighter: #EFF8FD;
+
+// Semantic Colors - Success
+$color-semantic-success: #59BB0C;
+$color-semantic-success-dark: #47950A;
+$color-semantic-success-light: rgba(89, 187, 12, 0.1);
+$color-semantic-success-lighter: rgba(89, 187, 12, 0.05);
+
+// Semantic Colors - Warning
+$color-semantic-warning: #F1AA00;
+$color-semantic-warning-dark: #D89B00;
+$color-semantic-warning-light: rgba(241, 170, 0, 0.1);
+$color-semantic-warning-lighter: rgba(241, 170, 0, 0.05);
+
+// Semantic Colors - Error
+$color-semantic-error: #DC3545;
+$color-semantic-error-dark: #B82D3C;
+$color-semantic-error-light: rgba(220, 53, 69, 0.1);
+$color-semantic-error-lighter: rgba(220, 53, 69, 0.05);
+
+// Semantic Colors - Info
+$color-semantic-info: #4BCCBE;
+$color-semantic-info-dark: #3BA79B;
+$color-semantic-info-light: rgba(75, 204, 190, 0.1);
+$color-semantic-info-lighter: rgba(75, 204, 190, 0.05);
+
+// Neutral Colors (Gray Scale)
+$color-neutral-0: #FFFFFF;
+$color-neutral-50: #F6F8FA;
+$color-neutral-100: #F1F5F9;
+$color-neutral-200: #E5E7EB;
+$color-neutral-300: #D1D5DB;
+$color-neutral-400: #C0C0C0;
+$color-neutral-500: #A0A0A0;
+$color-neutral-600: #6B7280;
+$color-neutral-700: #334155;
+$color-neutral-800: #1E3050;
+$color-neutral-900: #0F172A;
+$color-neutral-1000: #000000;
+
+// ==========================================================================
+// 2. Semantic Tokens (意味的トークン)
+// 用途別の色定義
+// ==========================================================================
+
+// Text Colors
+$color-text-primary: $color-neutral-700;
+$color-text-secondary: $color-neutral-600;
+$color-text-tertiary: $color-neutral-500;
+$color-text-disabled: $color-neutral-400;
+$color-text-placeholder: $color-neutral-400;
+$color-text-inverse: $color-neutral-0;
+$color-text-link: $color-brand-primary;
+$color-text-link-hover: $color-brand-primary-dark;
+
+// Background Colors
+$color-bg-primary: $color-neutral-0;
+$color-bg-secondary: $color-neutral-50;
+$color-bg-tertiary: $color-neutral-100;
+$color-bg-inverse: $color-neutral-800;
+$color-bg-overlay: rgba(0, 0, 0, 0.5);
+$color-bg-hover: rgba(0, 0, 0, 0.02);
+$color-bg-active: rgba(0, 0, 0, 0.05);
+
+// Border Colors
+$color-border-default: $color-neutral-200;
+$color-border-light: $color-neutral-300;
+$color-border-focus: $color-brand-primary;
+$color-border-error: $color-semantic-error;
+$color-border-success: $color-semantic-success;
+
+// ==========================================================================
+// 3. Component-Specific Tokens (コンポーネント固有トークン)
+// ==========================================================================
+
+// Button Colors
+$color-button-primary-bg: $color-brand-primary;
+$color-button-primary-bg-hover: $color-brand-primary-dark;
+$color-button-primary-bg-active: $color-brand-primary-darker;
+$color-button-primary-text: $color-neutral-0;
+
+$color-button-secondary-bg: $color-neutral-0;
+$color-button-secondary-bg-hover: $color-neutral-50;
+$color-button-secondary-bg-active: $color-neutral-100;
+$color-button-secondary-text: $color-text-primary;
+$color-button-secondary-border: $color-border-default;
+
+$color-button-danger-bg: $color-semantic-error;
+$color-button-danger-bg-hover: $color-semantic-error-dark;
+$color-button-danger-text: $color-neutral-0;
+
+// Badge/Status Colors
+$color-status-published: $color-semantic-success;
+$color-status-draft: $color-semantic-warning;
+$color-status-scheduled: $color-semantic-info;
+$color-status-archived: $color-neutral-500;
+
+// ==========================================================================
+// 4. CSS Custom Properties Export
+// CSS変数として出力（実行時の動的変更に対応）
+// ==========================================================================
+
+:root {
+  // Brand
+  --color-brand-primary: #{$color-brand-primary};
+  --color-brand-primary-dark: #{$color-brand-primary-dark};
+  --color-brand-primary-light: #{$color-brand-primary-light};
+  
+  // Semantic
+  --color-success: #{$color-semantic-success};
+  --color-warning: #{$color-semantic-warning};
+  --color-error: #{$color-semantic-error};
+  --color-info: #{$color-semantic-info};
+  
+  // Text
+  --color-text-primary: #{$color-text-primary};
+  --color-text-secondary: #{$color-text-secondary};
+  --color-text-disabled: #{$color-text-disabled};
+  --text-disabled: #{$color-text-disabled};
+  
+  // Background
+  --color-bg-primary: #{$color-bg-primary};
+  --color-bg-secondary: #{$color-bg-secondary};
+  --color-bg-tertiary: #{$color-bg-tertiary};
+  
+  // Border
+  --color-border: #{$color-border-default};
+  --color-border-light: #{$color-border-light};
+  --border-gray: #{$color-border-default};
+  
+  // Legacy variables for compatibility
+  --primary-blue: #{$color-brand-primary};
+  --primary-blue-light: #{$color-brand-primary-light};
+  --success-green: #{$color-semantic-success};
+  --success-green-light: #{$color-semantic-success-light};
+  --warning-yellow: #{$color-semantic-warning};
+  --warning-yellow-light: #{$color-semantic-warning-light};
+  --info-turquoise: #{$color-semantic-info};
+  --info-turquoise-light: #{$color-semantic-info-light};
+}

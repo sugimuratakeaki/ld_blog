@@ -1,0 +1,79 @@
+// ==========================================================================
+// Text Utilities
+// ==========================================================================
+
+// Text alignment
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+// Font sizes
+.text-xs { font-size: $font-size-xs !important; }
+.text-sm { font-size: $font-size-sm !important; }
+.text-base { font-size: $font-size-base !important; }
+.text-lg { font-size: $font-size-lg !important; }
+.text-xl { font-size: $font-size-xl !important; }
+.text-2xl { font-size: $font-size-2xl !important; }
+.text-3xl { font-size: $font-size-3xl !important; }
+.text-4xl { font-size: $font-size-4xl !important; }
+
+// Font weight
+.font-normal { font-weight: $font-normal !important; }
+.font-medium { font-weight: $font-medium !important; }
+.font-semibold { font-weight: $font-semibold !important; }
+.font-bold { font-weight: $font-bold !important; }
+
+// Line height
+.leading-none { line-height: 1 !important; }
+.leading-tight { line-height: $leading-tight !important; }
+.leading-normal { line-height: $leading-normal !important; }
+.leading-relaxed { line-height: $leading-relaxed !important; }
+.leading-loose { line-height: $leading-loose !important; }
+
+// Text transform
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.capitalize { text-transform: capitalize !important; }
+.normal-case { text-transform: none !important; }
+
+// Text decoration
+.underline { text-decoration: underline !important; }
+.line-through { text-decoration: line-through !important; }
+.no-underline { text-decoration: none !important; }
+
+// Text overflow
+.truncate {
+  @include truncate;
+}
+
+.text-ellipsis {
+  @include truncate;
+}
+
+.line-clamp-1 {
+  @include line-clamp(1);
+}
+
+.line-clamp-2 {
+  @include line-clamp(2);
+}
+
+.line-clamp-3 {
+  @include line-clamp(3);
+}
+
+// White space
+.whitespace-normal { white-space: normal !important; }
+.whitespace-nowrap { white-space: nowrap !important; }
+.whitespace-pre { white-space: pre !important; }
+.whitespace-pre-line { white-space: pre-line !important; }
+.whitespace-pre-wrap { white-space: pre-wrap !important; }
+
+// Word break
+.break-normal { 
+  overflow-wrap: normal !important; 
+  word-break: normal !important;
+}
+.break-words { overflow-wrap: break-word !important; }
+.break-all { word-break: break-all !important; }

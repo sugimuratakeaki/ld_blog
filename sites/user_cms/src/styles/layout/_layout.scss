@@ -1,0 +1,196 @@
+// ==========================================================================
+// Layout Component Styles (BEM)
+// ==========================================================================
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $gray-100;
+  
+  // Sidebar collapsed state
+  &--sidebar-collapsed {
+    .layout__sidebar {
+      width: 6rem;
+      
+      @include sp {
+        width: 0;
+      }
+    }
+    
+    .layout__main {
+      margin-left: 6rem;
+      
+      @include sp {
+        margin-left: 0;
+      }
+    }
+  }
+  
+  // Mobile menu open state
+  &--mobile-menu-open {
+    @include sp {
+      .layout__sidebar {
+        transform: translateX(0);
+      }
+      
+      .layout__overlay {
+        display: block;
+      }
+    }
+  }
+  
+  // Container
+  &__container {
+    display: flex;
+    flex: 1;
+    position: relative;
+  }
+  
+  // Sidebar
+  &__sidebar {
+    position: fixed;
+    top: 6rem; // Height of header
+    left: 0;
+    bottom: 0;
+    width: $sidebar-width;
+    background-color: $white;
+    border-right: 1px solid $border-gray;
+    z-index: $z-sidebar;
+    transition: width 0.3s ease, transform 0.3s ease;
+    
+    @include sp {
+      transform: translateX(-100%);
+      width: $sidebar-width;
+      z-index: $z-sidebar-mobile;
+    }
+  }
+  
+  // Main content area
+  &__main {
+    flex: 1;
+    margin-left: $sidebar-width;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 6rem); // Subtract header height
+    transition: margin-left 0.3s ease;
+    
+    @include sp {
+      margin-left: 0;
+    }
+  }
+  
+  // Content wrapper
+  &__content {
+    flex: 1;
+    padding: $spacing-lg; // Flask版と同じ: 32px
+    max-width: $container-max-width;
+    width: 100%;
+    margin: 0 auto;
+    
+    @include sp {
+      padding: $spacing-sm; // Flask版と同じ: 16px
+    }
+  }
+  
+  // Mobile overlay
+  &__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($dark-navy, 0.5);
+    z-index: $z-overlay;
+    
+    @include sp {
+      display: none; // Will be shown when menu is open
+    }
+  }
+  
+  // Sidebar toggle button
+  &__sidebar-toggle {
+    position: fixed;
+    bottom: $spacing-lg;
+    left: calc(#{$sidebar-width} - 2rem); // Position at edge of sidebar
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: $border-radius-full;
+    background-color: $white;
+    border: 1px solid $border-gray;
+    box-shadow: $shadow-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: left 0.3s ease, transform 0.2s ease;
+    z-index: $z-sidebar + 1;
+    
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: $shadow-md;
+    }
+    
+    &:focus {
+      outline: 2px solid $primary-blue;
+      outline-offset: 2px;
+    }
+    
+    @include sp {
+      display: none;
+    }
+  }
+  
+  // When sidebar is collapsed
+  &--sidebar-collapsed &__sidebar-toggle {
+    left: 4rem;
+  }
+}
+
+// Legacy support for Flask templates
+.app-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 6rem);
+  transition: margin-left 0.3s ease;
+  
+  @include sp {
+    margin-left: 0;
+  }
+}
+
+.main-container {
+  flex: 1;
+  padding: $spacing-lg; // Flask版と同じ: 32px
+  max-width: $container-max-width;
+  width: 100%;
+  margin: 0 auto;
+  
+  @include sp {
+    padding: $spacing-sm; // Flask版と同じ: 16px
+  }
+}
+
+.page-header {
+  margin-bottom: $spacing-lg; // Flask版と同じ: 40px → 32px
+}
+
+.page-title {
+  font-size: $font-size-2xl;
+  font-weight: $font-semibold;
+  color: $dark-navy;
+  margin-bottom: $spacing-sm;
+}
+
+.page-description {
+  font-size: $font-size-base;
+  color: $text-disabled;
+}

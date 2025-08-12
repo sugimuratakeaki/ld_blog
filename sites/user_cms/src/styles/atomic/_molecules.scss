@@ -1,0 +1,505 @@
+// ==========================================================================
+// Molecules - 複合コンポーネントスタイル
+// ==========================================================================
+
+// ==========================================================================
+// Form Field (Label + Input + Error)
+// ==========================================================================
+
+.form-field {
+  margin-bottom: $margin-stack-md;
+  
+  &__label {
+    display: block;
+    margin-bottom: $margin-stack-2xs;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+    
+    &--required::after {
+      content: ' *';
+      color: $color-semantic-error;
+    }
+  }
+  
+  &__input-wrapper {
+    position: relative;
+  }
+  
+  &__help {
+    margin-top: $margin-stack-2xs;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+  }
+  
+  &__error {
+    margin-top: $margin-stack-2xs;
+    font-size: $font-size-xs;
+    color: $color-semantic-error;
+  }
+  
+  // With icon
+  &--with-icon {
+    .form-field__input-wrapper {
+      position: relative;
+    }
+    
+    .form-field__icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-text-secondary;
+      
+      &--left {
+        left: $spacing-2;
+      }
+      
+      &--right {
+        right: $spacing-2;
+      }
+    }
+    
+    &.form-field--icon-left .input {
+      padding-left: $spacing-5;
+    }
+    
+    &.form-field--icon-right .input {
+      padding-right: $spacing-5;
+    }
+  }
+}
+
+// ==========================================================================
+// Card
+// ==========================================================================
+
+.card {
+  background-color: $color-bg-primary;
+  border: $border-default;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+  
+  &__header {
+    padding: $padding-card;
+    border-bottom: $border-default;
+    
+    &--no-border {
+      border-bottom: none;
+    }
+  }
+  
+  &__title {
+    margin: 0;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+  
+  &__subtitle {
+    margin-top: $margin-stack-2xs;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+  
+  &__body {
+    padding: $padding-card;
+  }
+  
+  &__footer {
+    padding: $padding-card;
+    border-top: $border-default;
+    background-color: $color-bg-secondary;
+    
+    &--no-border {
+      border-top: none;
+    }
+  }
+  
+  // Variants
+  &--clickable {
+    cursor: pointer;
+    transition: $transition-shadow, $transition-transform;
+    
+    &:hover {
+      box-shadow: $shadow-card-hover;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &--compact {
+    .card__header,
+    .card__body,
+    .card__footer {
+      padding: $padding-card-sm;
+    }
+  }
+  
+  &--borderless {
+    border: none;
+  }
+  
+  &--flat {
+    box-shadow: none;
+  }
+}
+
+// ==========================================================================
+// Alert
+// ==========================================================================
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: $gap-sm;
+  padding: $spacing-2 $spacing-3;
+  border-radius: $radius-base;
+  
+  &__icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  &__content {
+    flex: 1;
+  }
+  
+  &__title {
+    margin-bottom: $margin-stack-2xs;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+  }
+  
+  &__message {
+    font-size: $font-size-sm;
+    line-height: $line-height-relaxed;
+  }
+  
+  &__close {
+    flex-shrink: 0;
+    padding: $spacing-0-5;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: $opacity-60;
+    transition: $transition-opacity;
+    
+    &:hover {
+      opacity: $opacity-100;
+    }
+  }
+  
+  // Variants
+  &--success {
+    background-color: $color-semantic-success-lighter;
+    border: 1px solid $color-semantic-success-light;
+    color: $color-semantic-success;
+    
+    .alert__title {
+      color: $color-semantic-success;
+    }
+  }
+  
+  &--error {
+    background-color: $color-semantic-error-lighter;
+    border: 1px solid $color-semantic-error-light;
+    color: $color-semantic-error;
+    
+    .alert__title {
+      color: $color-semantic-error;
+    }
+  }
+  
+  &--warning {
+    background-color: $color-semantic-warning-lighter;
+    border: 1px solid $color-semantic-warning-light;
+    color: $color-semantic-warning-dark;
+    
+    .alert__title {
+      color: $color-semantic-warning-dark;
+    }
+  }
+  
+  &--info {
+    background-color: $color-semantic-info-lighter;
+    border: 1px solid $color-semantic-info-light;
+    color: $color-semantic-info-dark;
+    
+    .alert__title {
+      color: $color-semantic-info-dark;
+    }
+  }
+}
+
+// ==========================================================================
+// Button Group
+// ==========================================================================
+
+.btn-group {
+  display: inline-flex;
+  
+  .btn {
+    border-radius: 0;
+    
+    &:first-child {
+      border-top-left-radius: $radius-button;
+      border-bottom-left-radius: $radius-button;
+    }
+    
+    &:last-child {
+      border-top-right-radius: $radius-button;
+      border-bottom-right-radius: $radius-button;
+    }
+    
+    &:not(:first-child) {
+      margin-left: -1px;
+    }
+  }
+  
+  &--vertical {
+    flex-direction: column;
+    
+    .btn {
+      &:first-child {
+        border-radius: 0;
+        border-top-left-radius: $radius-button;
+        border-top-right-radius: $radius-button;
+      }
+      
+      &:last-child {
+        border-bottom-left-radius: $radius-button;
+        border-bottom-right-radius: $radius-button;
+      }
+      
+      &:not(:first-child) {
+        margin-left: 0;
+        margin-top: -1px;
+      }
+    }
+  }
+}
+
+// ==========================================================================
+// Dropdown
+// ==========================================================================
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
+  &__trigger {
+    cursor: pointer;
+  }
+  
+  &__menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: $z-index-dropdown;
+    min-width: 200px;
+    margin-top: $spacing-1;
+    padding: $spacing-1;
+    background-color: $color-bg-primary;
+    border: $border-default;
+    border-radius: $radius-base;
+    box-shadow: $shadow-dropdown;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: $transition-opacity, $transition-transform;
+    
+    &--open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+  
+  &__item {
+    display: block;
+    width: 100%;
+    padding: $spacing-1-5 $spacing-2;
+    text-align: left;
+    color: $color-text-primary;
+    background: transparent;
+    border: none;
+    border-radius: $radius-sm;
+    cursor: pointer;
+    transition: $transition-colors;
+    
+    &:hover {
+      background-color: $color-bg-hover;
+    }
+    
+    &--active {
+      background-color: $color-brand-primary-light;
+      color: $color-brand-primary;
+    }
+    
+    &--disabled {
+      color: $color-text-disabled;
+      cursor: not-allowed;
+      
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+  
+  &__divider {
+    margin: $spacing-1 0;
+    border-top: $border-default;
+  }
+  
+  // Alignment variants
+  &--right {
+    .dropdown__menu {
+      left: auto;
+      right: 0;
+    }
+  }
+  
+  &--top {
+    .dropdown__menu {
+      top: auto;
+      bottom: 100%;
+      margin-top: 0;
+      margin-bottom: $spacing-1;
+    }
+  }
+}
+
+// ==========================================================================
+// Pagination
+// ==========================================================================
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: $gap-2xs;
+  
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 $spacing-1-5;
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+    background-color: transparent;
+    border: $border-default;
+    border-radius: $radius-base;
+    cursor: pointer;
+    transition: $transition-colors;
+    
+    &:hover:not(:disabled) {
+      background-color: $color-bg-hover;
+      border-color: $color-brand-primary;
+    }
+    
+    &--active {
+      background-color: $color-brand-primary;
+      color: $color-neutral-0;
+      border-color: $color-brand-primary;
+    }
+    
+    &:disabled {
+      color: $color-text-disabled;
+      cursor: not-allowed;
+    }
+  }
+  
+  &__ellipsis {
+    padding: 0 $spacing-1;
+    color: $color-text-secondary;
+  }
+  
+  // Size variants
+  &--small {
+    .pagination__item {
+      min-width: 24px;
+      height: 24px;
+      padding: 0 $spacing-1;
+      font-size: $font-size-xs;
+    }
+  }
+  
+  &--large {
+    .pagination__item {
+      min-width: 40px;
+      height: 40px;
+      padding: 0 $spacing-2;
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// ==========================================================================
+// Search Box
+// ==========================================================================
+
+.search-box {
+  position: relative;
+  
+  &__input {
+    padding-left: $spacing-5;
+    padding-right: $spacing-5;
+  }
+  
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: $spacing-2;
+    transform: translateY(-50%);
+    color: $color-text-secondary;
+    pointer-events: none;
+  }
+  
+  &__clear {
+    position: absolute;
+    top: 50%;
+    right: $spacing-1;
+    transform: translateY(-50%);
+    padding: $spacing-0-5;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $color-text-secondary;
+    transition: $transition-colors;
+    
+    &:hover {
+      color: $color-text-primary;
+    }
+  }
+  
+  // With suggestions
+  &__suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: $z-index-dropdown;
+    margin-top: $spacing-1;
+    background-color: $color-bg-primary;
+    border: $border-default;
+    border-radius: $radius-base;
+    box-shadow: $shadow-dropdown;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  &__suggestion {
+    padding: $spacing-1-5 $spacing-2;
+    cursor: pointer;
+    transition: $transition-colors;
+    
+    &:hover {
+      background-color: $color-bg-hover;
+    }
+    
+    &--highlighted {
+      background-color: $color-brand-primary-light;
+    }
+  }
+}

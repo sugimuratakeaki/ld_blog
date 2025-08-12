@@ -1,0 +1,64 @@
+// ==========================================================================
+// Grid System - Flexible Grid Layout
+// ==========================================================================
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 #{-$spacing-md};
+  
+  @include sp {
+    margin: 0;
+  }
+}
+
+.col {
+  flex: 1;
+  padding: 0 $spacing-md;
+  
+  @include sp {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.col-auto {
+  flex: 0 0 auto;
+  padding: 0 $spacing-md;
+  
+  @include sp {
+    padding: 0;
+  }
+}
+
+// Column sizes for medium screens and up
+@include min-width($breakpoint-md) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} {
+      flex: 0 0 percentage($i, 12);
+      max-width: percentage($i, 12);
+    }
+  }
+}
+
+// Column sizes for large screens and up
+@include min-width($breakpoint-lg) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} {
+      flex: 0 0 percentage($i, 12);
+      max-width: percentage($i, 12);
+    }
+  }
+}
+
+// Column sizes for extra large screens and up
+@include min-width($breakpoint-xl) {
+  @for $i from 1 through 12 {
+    .col-xl-#{$i} {
+      flex: 0 0 percentage($i, 12);
+      max-width: percentage($i, 12);
+    }
+  }
+}

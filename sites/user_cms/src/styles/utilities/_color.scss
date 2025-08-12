@@ -1,0 +1,47 @@
+// ==========================================================================
+// Color Utilities
+// ==========================================================================
+
+// Text colors
+.text-primary { color: $primary-blue !important; }
+.text-secondary { color: $text-secondary !important; }
+.text-success { color: $success-green !important; }
+.text-warning { color: $warning-yellow !important; }
+.text-danger { color: $error-red !important; }
+.text-info { color: $info-turquoise !important; }
+.text-dark { color: $dark-navy !important; }
+.text-gray { color: $dark-gray !important; }
+.text-light { color: $text-disabled !important; }
+.text-white { color: $white !important; }
+.text-muted { color: $text-disabled !important; }
+
+// Background colors
+.bg-primary { background-color: $primary-blue !important; }
+.bg-primary-light { background-color: $primary-blue-light !important; }
+.bg-secondary { background-color: $text-secondary !important; }
+.bg-success { background-color: $success-green !important; }
+.bg-success-light { background-color: $success-green-light !important; }
+.bg-warning { background-color: $warning-yellow !important; }
+.bg-warning-light { background-color: $warning-yellow-light !important; }
+.bg-danger { background-color: $error-red !important; }
+.bg-danger-light { background-color: $error-red-light !important; }
+.bg-info { background-color: $info-turquoise !important; }
+.bg-info-light { background-color: $info-turquoise-light !important; }
+.bg-dark { background-color: $dark-navy !important; }
+.bg-gray { background-color: $dark-gray !important; }
+.bg-light { background-color: $light-gray-bg !important; }
+.bg-white { background-color: $white !important; }
+.bg-transparent { background-color: transparent !important; }
+
+// Border colors
+.border-primary { border-color: $primary-blue !important; }
+.border-secondary { border-color: $text-secondary !important; }
+.border-success { border-color: $success-green !important; }
+.border-warning { border-color: $warning-yellow !important; }
+.border-danger { border-color: $error-red !important; }
+.border-info { border-color: $info-turquoise !important; }
+.border-dark { border-color: $dark-navy !important; }
+.border-gray { border-color: $border-gray !important; }
+.border-light { border-color: $border-gray-light !important; }
+.border-white { border-color: $white !important; }
+.border-transparent { border-color: transparent !important; }

@@ -1,0 +1,159 @@
+// ==========================================================================
+// Base Styles - Global Element Styles
+// ==========================================================================
+
+// Body
+body {
+  font-family: $font-family-base;
+  color: $dark-gray;
+  background-color: $light-gray-bg;
+  min-height: 100vh;
+  @include flex-column;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-bold;
+  line-height: $leading-tight;
+  color: $dark-navy;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+  
+  @include sp {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  
+  @include sp {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-2xl;
+  
+  @include sp {
+    font-size: $font-size-xl;
+  }
+}
+
+h4 {
+  font-size: $font-size-xl;
+  
+  @include sp {
+    font-size: $font-size-lg;
+  }
+}
+
+h5 {
+  font-size: $font-size-lg;
+}
+
+h6 {
+  font-size: $font-size-base;
+}
+
+// Paragraphs
+p {
+  margin-bottom: $spacing-md;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Links
+a {
+  color: $primary-blue;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-blue-hover;
+    text-decoration: underline;
+  }
+  
+  &:active {
+    color: $primary-blue-active;
+  }
+}
+
+// Strong and emphasis
+strong,
+b {
+  font-weight: $font-semibold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+// Code
+code {
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  padding: 0.2em 0.4em;
+  background-color: $light-gray-bg-2;
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+  padding: $spacing-md;
+  background-color: $light-gray-bg-2;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  
+  code {
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}
+
+// Blockquote
+blockquote {
+  margin: $spacing-lg 0;
+  padding: $spacing-md $spacing-lg;
+  border-left: 4px solid $primary-blue;
+  background-color: $light-gray-bg-2;
+  font-style: italic;
+}
+
+// Horizontal rule
+hr {
+  margin: $spacing-xl 0;
+  border: none;
+  border-top: 1px solid $border-gray;
+}
+
+// Selection
+::selection {
+  background-color: alpha($primary-blue, 0.2);
+  color: $dark-gray;
+}
+
+// Focus visible outline
+:focus-visible {
+  outline: 2px solid $primary-blue;
+  outline-offset: 2px;
+}
+
+// Placeholder
+::placeholder {
+  color: $text-placeholder;
+  opacity: 1;
+}
+
+// Disabled state
+[disabled],
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}

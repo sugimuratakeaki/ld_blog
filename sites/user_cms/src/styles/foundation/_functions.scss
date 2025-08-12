@@ -1,0 +1,177 @@
+// ==========================================================================
+// Functions - Utility Functions for SCSS
+// ==========================================================================
+
+@use "sass:math";
+@use "sass:color";
+@use "sass:map";
+
+// ==========================================================================
+// Unit Conversion
+// ==========================================================================
+
+// Convert px to rem
+@function px-to-rem($px, $base: 10) {
+  @return calc($px / $base) * 1rem;
+}
+
+// Convert rem to px
+@function rem-to-px($rem, $base: 10) {
+  @return calc($rem * $base) * 1px;
+}
+
+// Strip unit from value
+@function strip-unit($value) {
+  @return calc($value / ($value * 0 + 1));
+}
+
+// ==========================================================================
+// Color Functions
+// ==========================================================================
+
+// Lighten color with better browser support
+@function tint($color, $percentage) {
+  @return color.mix(white, $color, $percentage);
+}
+
+// Darken color with better browser support
+@function shade($color, $percentage) {
+  @return color.mix(black, $color, $percentage);
+}
+
+// Get contrasting text color (black or white) based on background
+@function contrast-color($color) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+  
+  $brightness: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+  
+  @if $brightness > 128 {
+    @return $dark-gray;
+  } @else {
+    @return $white;
+  }
+}
+
+// Create transparent version of color
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// ==========================================================================
+// Spacing Functions
+// ==========================================================================
+
+// Get spacing value by index
+@function space($index) {
+  $spaces: (
+    0: $spacing-0,
+    1: $spacing-sm,
+    2: $spacing-md,
+    3: $spacing-lg,
+    4: $spacing-xl,
+    5: $spacing-2xl,
+    6: $spacing-3xl,
+    7: $spacing-4xl,
+    8: $spacing-5xl,
+    9: $spacing-6xl,
+    10: $spacing-7xl
+  );
+  
+  @return map-get($spaces, $index);
+}
+
+// ==========================================================================
+// Z-index Management
+// ==========================================================================
+
+// Get z-index value by name
+@function z($layer) {
+  $z-layers: (
+    'dropdown': $z-index-dropdown,
+    'sticky': $z-index-sticky,
+    'fixed': $z-index-fixed,
+    'modal-backdrop': $z-index-modal-backdrop,
+    'modal': $z-index-modal,
+    'popover': $z-index-popover,
+    'tooltip': $z-index-tooltip
+  );
+  
+  @if not map.has-key($z-layers, $layer) {
+    @warn "No z-index found for layer: #{$layer}";
+    @return 1;
+  }
+  
+  @return map.get($z-layers, $layer);
+}
+
+// ==========================================================================
+// Typography Functions
+// ==========================================================================
+
+// Get font size by name
+@function font-size($size) {
+  $sizes: (
+    'xs': $font-size-xs,
+    'sm': $font-size-sm,
+    'base': $font-size-base,
+    'lg': $font-size-lg,
+    'xl': $font-size-xl,
+    '2xl': $font-size-2xl,
+    '3xl': $font-size-3xl,
+    '4xl': $font-size-4xl
+  );
+  
+  @if not map-has-key($sizes, $size) {
+    @warn "No font size found for: #{$size}";
+    @return $font-size-base;
+  }
+  
+  @return map-get($sizes, $size);
+}
+
+// Calculate line height based on font size
+@function line-height($font-size, $line-height-ratio: $leading-normal) {
+  @return $font-size * $line-height-ratio;
+}
+
+// ==========================================================================
+// Breakpoint Functions
+// ==========================================================================
+
+// Get breakpoint value by name
+@function breakpoint($name) {
+  $breakpoints: (
+    'sp': $breakpoint-sp,
+    'tablet': $breakpoint-tablet,
+    'pc': $breakpoint-pc,
+    'wide': $breakpoint-wide,
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    '2xl': $breakpoint-2xl
+  );
+  
+  @if not map.has-key($breakpoints, $name) {
+    @warn "No breakpoint found for: #{$name}";
+    @return $breakpoint-md;
+  }
+  
+  @return map.get($breakpoints, $name);
+}
+
+// ==========================================================================
+// Math Functions
+// ==========================================================================
+
+// Calculate percentage
+@function percentage($value, $total) {
+  @return math.div($value, $total) * 100%;
+}
+
+// Clamp value between min and max
+@function clamp-value($min, $val, $max) {
+  @return max($min, min($max, $val));
+}

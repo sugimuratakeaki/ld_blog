@@ -1,0 +1,77 @@
+// ==========================================================================
+// Tag Component
+// ==========================================================================
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem $spacing-sm;
+  background-color: $light-gray-bg;
+  color: $dark-gray;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  transition: $transition-all-fast;
+  
+  &:hover {
+    background-color: $primary-blue-light;
+    color: $primary-blue;
+  }
+  
+  &-remove {
+    width: 1.6rem;
+    height: 1.6rem;
+    @include flex-center;
+    border-radius: $border-radius-full;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Tag input component
+.tag-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  padding: $spacing-sm;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-md;
+  background-color: $white;
+  min-height: 4rem;
+  align-items: center;
+  
+  &:focus-within {
+    border-color: $primary-blue;
+    box-shadow: 0 0 0 3px rgba($primary-blue, 0.1);
+  }
+}
+
+.tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem $spacing-sm;
+  background-color: $primary-blue-light;
+  color: $primary-blue;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-sm;
+}
+
+.tag-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0.4rem;
+  min-width: 10rem;
+  font-size: $font-size-base;
+  color: $dark-gray;
+  
+  &::placeholder {
+    color: $text-placeholder;
+  }
+}

@@ -1,0 +1,43 @@
+// ==========================================================================
+// Pagination Component
+// ==========================================================================
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin: $spacing-lg 0;
+}
+
+.pagination-item {
+  min-width: 3.6rem;
+  height: 3.6rem;
+  @include flex-center;
+  padding: 0 $spacing-sm;
+  font-size: $font-size-sm;
+  color: $dark-gray;
+  background-color: $white;
+  border: 1px solid $border-gray;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  
+  &:hover {
+    background-color: $light-gray-bg;
+  }
+  
+  &.active {
+    background-color: $primary-blue;
+    color: $white;
+    border-color: $primary-blue;
+  }
+  
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      background-color: $white;
+    }
+  }
+}

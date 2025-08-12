@@ -1,0 +1,23 @@
+// ==========================================================================
+// Container - Layout Container Styles
+// ==========================================================================
+
+.container {
+  @include container;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 $spacing-lg;
+  
+  @include sp {
+    padding: 0 $spacing-md;
+  }
+}
+
+// App container
+.app-container {
+  display: flex;
+  flex: 1;
+  position: relative;
+}

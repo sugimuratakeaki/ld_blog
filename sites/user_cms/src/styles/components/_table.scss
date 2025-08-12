@@ -1,0 +1,148 @@
+// ==========================================================================
+// Table Component
+// ==========================================================================
+
+.table {
+  width: 100%;
+  background-color: $white;
+  border-collapse: collapse;
+  
+  th,
+  td {
+    padding: $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-gray;
+  }
+  
+  th {
+    background-color: $light-gray-bg-2;
+    font-weight: $font-semibold;
+    color: $dark-gray;
+  }
+  
+  tbody tr {
+    &:hover {
+      background-color: $light-gray-bg;
+    }
+  }
+  
+  // Striped variant
+  &-striped tbody tr {
+    &:nth-child(even) {
+      background-color: $light-gray-bg-2;
+    }
+  }
+}
+
+// Article list table specific styles
+.article-list-table {
+  width: 100%;
+  
+  th {
+    background-color: $light-gray-bg-2;
+    font-size: $font-size-sm;
+    font-weight: $font-semibold;
+    color: $dark-gray;
+    padding: $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-gray;
+  }
+  
+  td {
+    padding: $spacing-md;
+    border-bottom: 1px solid $border-gray;
+  }
+  
+  tbody tr {
+    &:hover {
+      background-color: $light-gray-bg;
+    }
+  }
+  
+  @include sp {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+// Table cell components
+.article-thumbnail {
+  width: 6rem;
+  height: 4rem;
+  object-fit: cover;
+  border-radius: $border-radius-sm;
+  background-color: $light-gray-bg;
+}
+
+.article-title-cell {
+  @include flex-column;
+  gap: 0.4rem;
+}
+
+.article-title-link {
+  font-weight: $font-medium;
+  color: $dark-navy;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary-blue;
+    text-decoration: underline;
+  }
+}
+
+.article-category {
+  font-size: $font-size-sm;
+  color: $text-disabled;
+}
+
+.article-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem $spacing-sm;
+  font-size: $font-size-sm;
+  font-weight: $font-medium;
+  border-radius: $border-radius-sm;
+  
+  &.draft {
+    background-color: $warning-yellow-light;
+    color: $warning-yellow;
+  }
+  
+  &.scheduled {
+    background-color: $info-turquoise-light;
+    color: $info-turquoise;
+  }
+  
+  &.published {
+    background-color: $success-green-light;
+    color: $success-green;
+  }
+}
+
+.article-actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.article-action-btn {
+  width: 3.2rem;
+  height: 3.2rem;
+  @include flex-center;
+  border-radius: $border-radius-sm;
+  border: 1px solid $border-gray;
+  background-color: $white;
+  color: $dark-gray;
+  transition: $transition-all-fast;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $light-gray-bg;
+    border-color: $border-gray-light;
+  }
+  
+  &.delete:hover {
+    background-color: $error-red;
+    border-color: $error-red;
+    color: $white;
+  }
+}

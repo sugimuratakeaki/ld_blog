@@ -1,0 +1,86 @@
+// ==========================================================================
+// Responsive Utilities
+// ==========================================================================
+
+// Mobile visibility
+@include sp {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+  .show-mobile-inline { display: inline !important; }
+  .show-mobile-inline-block { display: inline-block !important; }
+  .show-mobile-flex { display: flex !important; }
+}
+
+// Tablet visibility
+@include tablet {
+  .hide-tablet { display: none !important; }
+  .show-tablet { display: block !important; }
+  .show-tablet-inline { display: inline !important; }
+  .show-tablet-inline-block { display: inline-block !important; }
+  .show-tablet-flex { display: flex !important; }
+}
+
+// Desktop visibility
+@include pc {
+  .hide-desktop { display: none !important; }
+  .show-desktop { display: block !important; }
+  .show-desktop-inline { display: inline !important; }
+  .show-desktop-inline-block { display: inline-block !important; }
+  .show-desktop-flex { display: flex !important; }
+}
+
+// General responsive utilities
+@include min-width($breakpoint-tablet) {
+  .show-mobile { display: none !important; }
+}
+
+@include max-width($breakpoint-sp) {
+  .hide-sm { display: none !important; }
+}
+
+@include min-width($breakpoint-md) {
+  .hide-md-up { display: none !important; }
+}
+
+@include max-width($breakpoint-md - 1) {
+  .hide-md-down { display: none !important; }
+}
+
+@include min-width($breakpoint-lg) {
+  .hide-lg-up { display: none !important; }
+}
+
+@include max-width($breakpoint-lg - 1) {
+  .hide-lg-down { display: none !important; }
+}
+
+// Print utilities
+@media print {
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  
+  // Hide UI elements in print
+  .header,
+  .sidebar,
+  .footer,
+  .sp-menu,
+  .blog-header-section,
+  .page-actions,
+  .btn,
+  .dropdown,
+  .modal {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  // Ensure content uses full width
+  .container,
+  .main-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}

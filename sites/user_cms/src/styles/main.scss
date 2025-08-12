@@ -1,0 +1,65 @@
+// ==========================================================================
+// Main SCSS File - Import All Partials
+// ==========================================================================
+
+// ==========================================================================
+// Foundation (using @import for global variables and mixins)
+// ==========================================================================
+@import 'foundation/variables';
+@import 'foundation/functions';
+@import 'foundation/mixins';
+@import 'foundation/reset';
+@import 'foundation/base';
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+@import 'layout/grid';
+@import 'layout/container';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/drawer';
+@import 'layout/layout';
+
+// ==========================================================================
+// Components
+// ==========================================================================
+@import 'components/button';
+@import 'components/card';
+@import 'components/form';
+@import 'components/table';
+@import 'components/modal';
+@import 'components/alert';
+@import 'components/pagination';
+@import 'components/breadcrumb';
+@import 'components/tag';
+@import 'components/badge';
+@import 'components/tooltip';
+@import 'components/dropdown';
+@import 'components/ad';
+@import 'components/footer';
+@import 'components/blog-header';
+
+// ==========================================================================
+// Pages
+// ==========================================================================
+@import 'pages/dashboard';
+@import 'pages/article-edit';
+@import 'pages/article-list';
+@import 'pages/image-manager';
+
+// ==========================================================================
+// Utilities
+// ==========================================================================
+@import 'utilities/spacing';
+@import 'utilities/text';
+@import 'utilities/color';
+@import 'utilities/display';
+@import 'utilities/flex';
+@import 'utilities/responsive';
+
+// ==========================================================================
+// Themes
+// ==========================================================================
+@import 'themes/default';

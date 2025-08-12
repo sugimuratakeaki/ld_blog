@@ -1,0 +1,154 @@
+// ==========================================================================
+// Blog Header - Main blog information section
+// ==========================================================================
+
+.blog-header {
+  background-color: $white;
+  border-bottom: 1px solid $border-gray;
+  padding: $spacing-lg 0;
+
+  @include max-width($breakpoint-lg) {
+    padding: $spacing-md 0;
+  }
+}
+
+.blog-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @include max-width($breakpoint-lg) {
+    padding: 0 $spacing-md;
+    gap: $spacing-md;
+  }
+}
+
+.blog-header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+
+  @include max-width($breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+}
+
+.blog-header-info {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.blog-header-icon {
+  width: 56px;
+  height: 56px;
+  @include flex-center;
+  background-color: $light-gray-bg;
+  border-radius: 12px;
+  font-size: 24px;
+  border: 1px solid $border-gray;
+
+  @include max-width($breakpoint-md) {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+}
+
+.blog-header-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.blog-header-title {
+  font-size: $font-size-xl;
+  font-weight: $font-bold;
+  color: $dark-navy;
+  margin: 0;
+  line-height: 1.2;
+
+  @include max-width($breakpoint-md) {
+    font-size: $font-size-lg;
+  }
+}
+
+.blog-header-url {
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-blue;
+  }
+}
+
+.blog-header-visit-btn {
+  background-color: $primary-blue;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: $font-size-base;
+  font-weight: $font-medium;
+  cursor: pointer;
+  transition: background-color $transition-base;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $primary-blue-hover;
+  }
+
+  &:focus {
+    outline: 2px solid $primary-blue;
+    outline-offset: 2px;
+  }
+
+  @include max-width($breakpoint-md) {
+    align-self: stretch;
+  }
+}
+
+.blog-header-stats {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @include max-width($breakpoint-md) {
+    justify-content: center;
+    gap: $spacing-md;
+  }
+
+  @include max-width($breakpoint-sm) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+.blog-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 60px;
+}
+
+.blog-stat-value {
+  font-size: $font-size-lg;
+  font-weight: $font-bold;
+  color: $dark-navy;
+  line-height: 1;
+}
+
+.blog-stat-label {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  margin-top: 2px;
+}
