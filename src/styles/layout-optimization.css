@@ -1,0 +1,71 @@
+/* Layout Optimization and CLS Prevention */
+
+/* Prevent layout shifts by ensuring consistent sizing */
+.app-promotion-mobile {
+  width: 375px;
+  min-height: 400px; /* Prevent height jumps while loading */
+}
+
+.app-promotion-desktop {
+  width: 1280px;
+  min-height: 500px; /* Prevent height jumps while loading */
+}
+
+/* Image loading optimization */
+.app-icon, 
+.app-badge, 
+.app-screenshot {
+  /* Prevent layout shift during image loading */
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Skeleton loading states to prevent CLS */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Smooth transitions for layout changes */
+.layout-transition {
+  transition: max-width 0.3s ease-in-out, 
+              margin 0.3s ease-in-out, 
+              padding 0.3s ease-in-out;
+}
+
+/* Force GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Responsive container queries support */
+@container (max-width: 375px) {
+  .container-responsive {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Prevent flash of unstyled content */
+.layout-ready {
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.layout-loading {
+  opacity: 0;
+}

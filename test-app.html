@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test App Rendering</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hiragino+Sans:wght@300;600&display=swap');
+    body {
+      font-family: 'Hiragino Sans', sans-serif;
+    }
+    #debug {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      font-family: monospace;
+      z-index: 9999;
+      max-width: 500px;
+      max-height: 400px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="debug">
+    <h3>Debug Console</h3>
+    <div id="log"></div>
+  </div>
+  <div id="root"></div>
+  
+  <script>
+    // Debug logger
+    const log = (msg) => {
+      const logDiv = document.getElementById('log');
+      const time = new Date().toTimeString().split(' ')[0];
+      logDiv.innerHTML += `<div>[${time}] ${msg}</div>`;
+    };
+    
+    // Override console.error to catch errors
+    const originalError = console.error;
+    console.error = function(...args) {
+      log(`ERROR: ${args.join(' ')}`);
+      originalError.apply(console, args);
+    };
+    
+    // Catch unhandled errors
+    window.addEventListener('error', (e) => {
+      log(`Uncaught Error: ${e.message} at ${e.filename}:${e.lineno}:${e.colno}`);
+    });
+    
+    // Monitor DOM changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'childList' && mutation.target.id === 'root') {
+          const childCount = mutation.target.children.length;
+          if (childCount > 0) {
+            log(`Root div updated: ${childCount} children`);
+          }
+        }
+      });
+    });
+    
+    observer.observe(document.getElementById('root'), {
+      childList: true,
+      subtree: true
+    });
+    
+    log('Page loaded');
+    
+    // Load React app bundle
+    const script = document.createElement('script');
+    script.src = 'http://localhost:8070/static/js/bundle.js';
+    script.onload = () => log('Bundle loaded');
+    script.onerror = () => log('Bundle failed to load');
+    document.head.appendChild(script);
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Render Test</title>
+    <script>
+        // Test if the page is rendering
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const root = document.getElementById('root');
+                const hasContent = root && root.children.length > 0;
+                const innerHTML = root ? root.innerHTML.substring(0, 200) : 'No root element';
+                
+                console.log('=== REACT RENDER TEST ===');
+                console.log('Root element found:', !!root);
+                console.log('Has content:', hasContent);
+                console.log('Inner HTML preview:', innerHTML);
+                console.log('Child count:', root ? root.children.length : 0);
+                
+                // Check for React indicators
+                const hasReactRoot = root && root._reactRootContainer;
+                console.log('Has React root:', !!hasReactRoot);
+                
+                // Check computed styles
+                if (root && root.children[0]) {
+                    const firstChild = root.children[0];
+                    const styles = window.getComputedStyle(firstChild);
+                    console.log('First child display:', styles.display);
+                    console.log('First child visibility:', styles.visibility);
+                    console.log('First child opacity:', styles.opacity);
+                }
+            }, 2000);
+        });
+    </script>
+</head>
+<body>
+    <iframe src="http://localhost:8070" width="100%" height="600" style="border: 1px solid #ccc;"></iframe>
+    <div>
+        <h2>Debug Console Output</h2>
+        <p>Open browser console to see React render test results</p>
+    </div>
+</body>
+</html>
